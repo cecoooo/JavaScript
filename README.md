@@ -1,2 +1,2 @@
 # JavaScript
-Just JS exercises
+Just JS exercises + HTML & CSS
