@@ -5,14 +5,16 @@ function init(){
         const comments = await getComment();
         displayComments(comments);
     });
-    document.getElementById('send').addEventListener('click', onPost)
+    document.getElementById('comment-form').addEventListener('submit', onPost)
     document.getElementById('comments').addEventListener('click', onCommentClick);
     
 }
 
-async function onPost(){
-    const name = document.querySelector('[name="name"]').value;
-    const content = document.querySelector('[name="content"]').value;
+async function onPost(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const name = formData.get('name');
+    const content = formData.get('content');
     await postComment({name, content});
 }
 
